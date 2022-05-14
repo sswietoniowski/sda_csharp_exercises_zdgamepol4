@@ -6,7 +6,82 @@ namespace sda_csharp_exercises
     {
         static void Main(string[] args)
         {
-            // TODO: add your solution here...
+            Console.WriteLine(CheckPasswordComplexity("dupa"));
+            Console.WriteLine();
+            Console.WriteLine(CheckPasswordComplexity("bpG1410PK3:0$"));
+
+        }
+
+        private static bool CheckPasswordComplexity(string password)
+        {
+            bool hasRequiredLength = HasRequiredLength(password);
+            Console.WriteLine($"Has Required Length: {hasRequiredLength}");
+            bool containsLowerAndUpperLetter = ContainsLowerAndUpperLetter(password);
+            Console.WriteLine($"Contains Lower And Upper Letter: {containsLowerAndUpperLetter}");
+            bool containsDigit = ContainsDigit(password);
+            Console.WriteLine($"Contains Digit: {containsDigit}");
+            bool containsSpecialCharacter = ContainsSpecialCharacter(password);
+            Console.WriteLine($"Contains Special Character: {containsSpecialCharacter}");
+
+            return hasRequiredLength
+                   && containsLowerAndUpperLetter
+                   && containsDigit
+                   && containsSpecialCharacter;
+        }
+
+        private static bool ContainsLowerAndUpperLetter(string password)
+        {
+            bool containsLowerLetter = false;
+            bool containsUpperLetter = false;
+
+            foreach (var character in password)
+            {
+                if (Char.IsLower(character))
+                {
+                    containsLowerLetter = true;
+                }
+                else if (Char.IsUpper(character))
+                {
+                    containsUpperLetter = true;
+                }
+            }
+
+            return containsLowerLetter && containsUpperLetter;
+        }
+
+        private static bool ContainsSpecialCharacter(string password)
+        {
+            const string SPECIAL_CHARACTERS = "&*$#";
+
+            foreach (var character in password)
+            {
+                if (SPECIAL_CHARACTERS.Contains(character))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        private static bool ContainsDigit(string password)
+        {
+            foreach (var character in password)
+            {
+                if (Char.IsDigit(character))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        private static bool HasRequiredLength(string password)
+        {
+            const int MIN_PASSWORD_LENGTH = 6;
+
+            return password.Length >= MIN_PASSWORD_LENGTH;
         }
     }
 }
