@@ -15,7 +15,12 @@ namespace sda_csharp_exercises
                 Console.WriteLine("Nie umiem policzyć wyniku dla ujemnej potęgi");
                 return;
             }
-            Console.WriteLine($"{basis} ^ {exponent} = {Power(basis, exponent)}");
+
+            int result = Power(basis, exponent);
+            // alternative solution
+            //result = (int) Math.Pow(basis, exponent);
+
+            Console.WriteLine($"{basis} ^ {exponent} = {result}");
         }
 
         private static int Power(int basis, int exponent)
