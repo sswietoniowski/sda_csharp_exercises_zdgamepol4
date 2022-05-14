@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text.RegularExpressions;
 
 namespace sda_csharp_exercises
 {
@@ -6,9 +7,15 @@ namespace sda_csharp_exercises
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(CheckPasswordComplexity("dupa"));
+            string weakPassword = "dupa";
+            string strongPassword = "bpG1410PK3:0$";
+
+            Console.WriteLine(CheckPasswordComplexity(weakPassword));
             Console.WriteLine();
-            Console.WriteLine(CheckPasswordComplexity("bpG1410PK3:0$"));
+            Console.WriteLine(CheckPasswordComplexity(strongPassword));
+            Console.WriteLine();
+            Console.WriteLine(CheckPasswordComplexityWithRegex(weakPassword));
+            Console.WriteLine(CheckPasswordComplexityWithRegex(strongPassword));
 
         }
 
@@ -82,6 +89,13 @@ namespace sda_csharp_exercises
             const int MIN_PASSWORD_LENGTH = 6;
 
             return password.Length >= MIN_PASSWORD_LENGTH;
+        }
+
+        private static bool CheckPasswordComplexityWithRegex(string password)
+        {
+            const string PASSWORD_PATTERN = @"(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[&*$#])(?=.{6,})";
+
+            return Regex.IsMatch(password, PASSWORD_PATTERN);
         }
     }
 }
