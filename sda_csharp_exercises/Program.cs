@@ -93,7 +93,8 @@ namespace sda_csharp_exercises
 
         private static bool CheckPasswordComplexityWithRegex(string password)
         {
-            const string PASSWORD_PATTERN = @"(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[&*$#])(?=.{6,})";
+            const string PASSWORD_PATTERN = 
+                @"(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[&*$#])(?=.{6,})";
 
             return Regex.IsMatch(password, PASSWORD_PATTERN);
         }
