@@ -12,8 +12,10 @@ namespace sda_csharp_exercises
         {
             string text = "Asia";
             Console.WriteLine($"Text: {text}");
+
             string leetSpeak = ToLeetSpeak(text);
             Console.WriteLine($"Leet Speak: {leetSpeak}");
+
             string decodedText = FromLeetSpeak(leetSpeak);
             Console.WriteLine($"Decoded Text: {decodedText}");
         }
