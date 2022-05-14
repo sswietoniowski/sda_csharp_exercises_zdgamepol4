@@ -11,19 +11,15 @@ namespace sda_csharp_exercises
 
         private static void PrintTriangle(int lines, char symbol)
         {
-            int counter = 1;
-            while (counter <= lines)
+            for (int i = 1; i <= lines; i++)
             {
-                PrintLine(counter, symbol);
-                counter++;
+                PrintLine(i, symbol);
             }
 
-            counter--;
-            do
+            for (int i = lines - 1; i >= 1; i--)
             {
-                counter--;
-                PrintLine(counter, symbol);
-            } while (counter > 1);
+                PrintLine(i, symbol);
+            }
         }
 
         private static void PrintLine(int length, char symbol)
