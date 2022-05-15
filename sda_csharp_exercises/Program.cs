@@ -7,23 +7,20 @@ namespace sda_csharp_exercises
         static void Main(string[] args)
         {
             //Person person = new Person();
-            //person.FirstName = "Jan"; // set
-            //Console.WriteLine(person.FirstName); // get
-            //person.FirstName = ""; // imię nie ulegnie zmianie
-            //person.LastName = "Kowalski";
-            //Console.WriteLine(person.LastName);
+            //var person = new Person();
+            //Person person = new();
+            //person.FirstName = "Jan";
+            ////person.LastName = "Kowalski";
+            //person.YearOfBirth = 1990;
 
-            Person person = new Person();
-            person.FirstName = "Jan";
-            person.LastName = "Kowalski";
-            person.YearOfBirth = 1990;
+            //Employee employee = new();
+            //employee.FirstName = "Adam";
+            //employee.LastName = "Nowak";
+            ////employee.YearOfBirth = 2000;
+            //employee.Salary = 5_000.99M;
 
-            //Console.WriteLine($"{person.FirstName} {person.LastName} {person.YearOfBirth}");
-
-            person.WhoAmI();
-
-            //Console.WriteLine($"Is Adult: {person.IsAdult()}");
-            Console.WriteLine($"Is Adult: {person.IsAdult}");
+            //Person anotherPerson = employee;
+            //Employee employee = new Employee("Adam", "Nowak", 2000, 5_000.00M);
         }
     }
 }

@@ -7,7 +7,7 @@ namespace sda_csharp_exercises
         private const int PROPER_AGE = 18;
 
         // fields
-        private string _firstName;
+        private string firstName;
         //public string LastName;
 
         // properties
@@ -15,7 +15,7 @@ namespace sda_csharp_exercises
         {
             get
             {
-                return _firstName;
+                return firstName;
             }
 
             set
@@ -25,11 +25,11 @@ namespace sda_csharp_exercises
                     throw new ArgumentException(nameof(FirstName));
                 }
 
-                _firstName = value;
+                firstName = value;
 
                 //if (!string.IsNullOrWhiteSpace(value))
                 //{
-                //    _firstName = value;
+                //    firstName = value;
                 //}
             }
         }
@@ -58,5 +58,19 @@ namespace sda_csharp_exercises
         //}
 
         public bool IsAdult => (DateTime.Now.Year) - YearOfBirth >= PROPER_AGE;
+
+        //public Person()
+        //{
+        //    Console.WriteLine($"{nameof(Person)} created without parameters");
+        //}
+
+        public Person(string firstName, string lastName, int yearOfBirth)
+        {
+            this.firstName = firstName;
+            LastName = lastName;
+            YearOfBirth = yearOfBirth;
+
+            Console.WriteLine($"{nameof(Person)} created with parameters");
+        }
     }
 }
