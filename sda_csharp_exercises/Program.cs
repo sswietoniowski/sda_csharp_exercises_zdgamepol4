@@ -56,6 +56,23 @@ namespace sda_csharp_exercises
                 //    Console.WriteLine($"Salary: {e.Salary}");
                 //}
             }
+
+            PrintHello(guests);
+        }
+
+        static void PrintHello(Person[] guests)
+        {
+            foreach (var guest in guests)
+            {
+                if (guest.IsAdult)
+                {
+                    Console.WriteLine("Witaj w sklepie monopolowym");
+                }
+                else
+                {
+                    Console.WriteLine("Witaj w sklepie z zabawkami");
+                }
+            }
         }
     }
 }
