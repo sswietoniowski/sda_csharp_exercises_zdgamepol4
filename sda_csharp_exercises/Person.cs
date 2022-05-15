@@ -38,9 +38,20 @@ namespace sda_csharp_exercises
 
         public int YearOfBirth { get; init; }
 
-        public void WhoAmI()
+        public virtual void WhoAmI()
         {
-            Console.WriteLine($"My Name is {LastName}. {FirstName} {LastName}");
+            Console.WriteLine(this);
+        }
+
+        public override string ToString()
+        {
+            return string.Format(
+                @"
+-----------------------------------------------------
+My Name is {1}. {0} {1}
+-----------------------------------------------------
+", FirstName, LastName
+            );
         }
 
         //public bool IsAdult()

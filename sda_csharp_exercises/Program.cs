@@ -6,58 +6,21 @@ namespace sda_csharp_exercises
     {
         static void Main(string[] args)
         {
-            //Person person = new Person();
-            //person.LastName = "Joanna";
+            //Employee employee = new Employee("Jan", "Kowalski", 2000, 5_000.00M);
+            ////employee.WhoAmI();
 
-            Person[] guests = new Person[]
+            //Person person = employee;
+            //person.WhoAmI();
+            Employee[] employees = new Employee[]
             {
-                new Person("Jan", "Kowalski", 1990),
-                new Employee("Adam", "Nowak", 2000, 5_000.00M),
-                new Person(),
-                new Person()
-                { // blok inicjalizcyjny konstruktora
-                    FirstName = "Ewa",
-                    LastName = "Niedźwiecka",
-                    YearOfBirth = 2010
-                }
+                new Employee("Jan", "Kowalski", 1990, 5_000.00M),
+                new Manager("Adam", "Nowak", 2000, 5_000.00M),
             };
 
-            Console.WriteLine("-----------------------------------------------------");
-
-            foreach (var guest in guests)
+            foreach (var employee in employees)
             {
-                guest.WhoAmI();
-
-                //if (guest.GetType() == typeof(Employee))
-                //{
-                //    var employee = (Employee) guest;
-
-                //    Console.WriteLine($"Salary: {employee.Salary}");
-                //}
-
-                //if (guest is Employee)
-                //{
-                //    var employee = (Employee)guest;
-                //    Console.WriteLine($"Salary: {employee.Salary}");
-                //}
-
-                if (guest is Employee employee)
-                {
-                    Console.WriteLine($"Salary: {employee.Salary}");
-                }
-
-                //var e = (Employee) guest;
-                //Console.WriteLine($"Salary: {e.Salary}");
-
-                //var e = guest as Employee;
-                //Console.WriteLine($"Salary: {e?.Salary}");
-                //if (e is not null) // e != null
-                //{
-                //    Console.WriteLine($"Salary: {e.Salary}");
-                //}
+                employee.WhoAmI();
             }
-
-            PrintHello(guests);
         }
 
         static void PrintHello(Person[] guests)
