@@ -1,27 +1,9 @@
-﻿namespace sda_csharp_exercises
+﻿using System;
+
+namespace sda_csharp_exercises
 {
     public class MyPoint
     {
-        //private double x;
-        //private double y;
-
-        //public double X 
-        //{
-        //    get
-        //    {
-        //        return x;
-        //    }
-        //    set
-        //    {
-        //        x = value;
-        //    }
-        //}
-
-        //public double Y { get => y; set => y = value; }
-
-        //public double X { get; set; }
-        //public double Y { get; set; }
-
         public double X { get; }
         public double Y { get; }
 
@@ -29,6 +11,11 @@
         {
             X = x;
             Y = y;
+        }
+
+        public virtual double GetDistanceFromPoint(MyPoint point)
+        {
+            return Math.Sqrt(Math.Pow((X - point.X), 2) + Math.Pow((Y - point.Y), 2));
         }
 
         public override string ToString()

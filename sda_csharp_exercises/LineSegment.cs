@@ -4,8 +4,8 @@ namespace sda_csharp_exercises
 {
     public class LineSegment
     {
-        private MyPoint start;
-        private MyPoint end;
+        protected MyPoint start;
+        protected MyPoint end;
 
         public LineSegment(MyPoint start, MyPoint end)
         {
@@ -13,15 +13,15 @@ namespace sda_csharp_exercises
             this.end = end;
         }
 
-        public LineSegment(double startX, double startY, double endX, double endY)
-        {
-            start = new MyPoint(startX, startY);
-            end = new MyPoint(endX, endY);
-        }
+        //public LineSegment(double startX, double startY, double endX, double endY)
+        //{
+        //    start = new MyPoint(startX, startY);
+        //    end = new MyPoint(endX, endY);
+        //}
 
         public double GetLength()
         {
-            return Math.Sqrt(Math.Pow((end.X - start.X), 2) + Math.Pow((end.Y - start.Y), 2));
+            return start.GetDistanceFromPoint(end);
         }
 
         public double Length => GetLength();
